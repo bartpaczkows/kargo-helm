@@ -37,15 +37,16 @@ This is a GitOps repository of a Kargo Helm example for getting started.
    pushing an existing image with your GitHub username:
 
    ```shell
-   docker login ghcr.io
+   ## docker login ghcr.io
 
-   docker buildx imagetools create \
-     ghcr.io/akuity/guestbook:latest \
-     -t ghcr.io/<yourgithubusername>/guestbook:v0.0.1
+   echo YOUR_GITHUB_TOKEN | docker login ghcr.io -u YOUR_GITHUB_USERNAME --password-stdin 
+
+   docker buildx imagetools create ghcr.io/akuity/guestbook:latest -t ghcr.io/bartpaczkows/guestbook:v0.0.1
    ```
 
    You will now have a `guestbook` container image repository. e.g.:
-   https://github.com/yourgithubusername/guestbook/pkgs/container/guestbook
+   ## https://github.com/bartpaczkows/guestbook/pkgs/container/guestbook
+   https://github.com/users/bartpaczkows/packages/container/package/guestbook
 
 5. Change guestbook container image repository to public.
 
@@ -65,7 +66,8 @@ This is a GitOps repository of a Kargo Helm example for getting started.
 7. Login to Kargo:
 
    ```shell
-   kargo login --admin https://<kargo-url>
+   #kargo login --admin https://<kargo-url>
+   kargo login --admin --insecure-skip-tls-verify https://localhost:31444 
    ```
 
 8. Apply the Kargo manifests:

@@ -76,15 +76,15 @@ This is a GitOps repository of a Kargo Helm example for getting started.
    kargo apply -f ./kargo
    ```
 
-9. Add the Git repository credentials to Kargo. This can also be done in the UI
+9. Add the Git repository credentials to Kargo (enter the token) This can also be done in the UI
    in the `kargo-helm` Project.
 
    ```shell
    kargo create credentials github-creds \
      --project kargo-helm \
      --git \
-     --username <yourgithubusername> \
-     --repo-url https://github.com/<yourgithubusername>/kargo-helm.git
+     --username bartpaczkows \
+     --repo-url https://github.com/bartpaczkows/kargo-helm.git
    ```
 
    As part of the promotion process, Kargo requires privileges to commit changes

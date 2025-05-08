@@ -17,8 +17,8 @@ spec:
         kargo.akuity.io/authorized-stage: kargo-helm:{{path.basename}}
     spec:
       destination:
+        server: https://kubernetes.default.svc
         namespace: kargo-helm-{{path.basename}}
-        name: demo
       project: kargo-helm
       source:
         path: charts/guestbook
